@@ -22,4 +22,13 @@ public class Ufo : MonoBehaviour
         rb2d.AddForce(movement*speed);
         
     }
+
+    private void OnTriggerEnter2D(Collider2D obiekt)
+    {
+        if (obiekt.gameObject.CompareTag("PickUp")) 
+        {
+            Destroy(obiekt.gameObject);
+        }
+    }
+
 }
