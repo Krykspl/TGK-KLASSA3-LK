@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ufo : MonoBehaviour
 {
     public float speed;
-    Rigidbody2D rb2d; 
+    Rigidbody2D rb2d;
+    private int count = 0;
+    public Text score_02;
     
     void Start()
     {
@@ -27,6 +30,7 @@ public class Ufo : MonoBehaviour
     {
         if (obiekt.gameObject.CompareTag("PickUp")) 
         {
+            count++;
             Destroy(obiekt.gameObject);
         }
     }
