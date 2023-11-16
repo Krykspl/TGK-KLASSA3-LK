@@ -17,4 +17,3 @@ public class kamera : MonoBehaviour
         transform.position = offset + player.transform.position;
     }
 }
-Z

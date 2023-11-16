@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Ufo : MonoBehaviour
@@ -9,6 +11,7 @@ public class Ufo : MonoBehaviour
     Rigidbody2D rb2d;
     private int count = 0;
     public Text score_02;
+    [SerializeField] Text winText;
     
     void Start()
     {
@@ -31,8 +34,17 @@ public class Ufo : MonoBehaviour
         if (obiekt.gameObject.CompareTag("PickUp")) 
         {
             count++;
+            score_02.text = count.ToString();
             Destroy(obiekt.gameObject);
-        }
+            if (count>= 3)
+            {
+                winText.gameObject.SetActive(true);
+
+
+                SceneManager.LoadScene("Level02");
+			    //currentindex+1
+            }
+		}
     }
 
 }
